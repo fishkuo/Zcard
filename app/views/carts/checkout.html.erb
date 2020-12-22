@@ -1,27 +1,27 @@
 <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
 
-<h1>結帳</h1>
+<h1 style="margin-top:30px">結帳</h1>
 
 <%= render 'cart', cart: current_cart %>
 
 <%= form_for(@order, html: { id: 'payment-form' }) do |form| %>
   <div>
-    <%= form.label :username%>
-    <%= form.text_field :username%>
+    <%= form.label :username, class:"form-group"%>
+    <%= form.text_field :username, class:"form-control"%>
   </div>
   <div>
-    <%= form.label :tel%>
-    <%= form.text_field :tel%>
+    <%= form.label :tel, class:"form-group"%>
+    <%= form.text_field :tel, class:"form-control"%>
   </div>
   <div>
-    <%= form.label :address%>
-    <%= form.text_field :address%>
+    <%= form.label :address, class:"form-group"%>
+    <%= form.text_field :address, class:"form-control"%>
   </div>
 
   <div id="dropin-container"></div>
   <input type="hidden" id="nonce" name="payment_method_nonce"/>
 
-  <%= form.submit '確認付款' %>
+  <%= form.submit '確認付款', class:"btn btn-dark" ,style:"margin-top:30px"%>
 <% end %>
 
 <script type="text/javascript">

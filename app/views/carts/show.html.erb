@@ -1,8 +1,9 @@
-<h1>購物車</h1>
-
-<%= link_to '清空購物車', cart_path, method: 'delete' %>
+<h1 style="margin-top:30px">購物車</h1>
 
 <%= render 'cart', cart: current_cart %>
 
-<%= link_to '繼續購買', pricing_path %>
-<%= link_to '結帳', checkout_cart_path if not current_cart.empty? %>
+<%= link_to '繼續購買', pricing_path ,class:"btn btn-primary" %>
+<div class="btn btn-success"><%= link_to '結帳',checkout_cart_path if not current_cart.empty? %></div>
+
+
+<%= link_to '清空購物車', cart_path, method: 'delete' ,class:"btn btn-danger"%>

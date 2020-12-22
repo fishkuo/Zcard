@@ -1,9 +1,9 @@
 <h1 style="margin-top:30px;">購買點數卡</h1>
-<ul>
+<ul class="list-group">
   <% @products.each do |product| %>
-    <li>
+    <li class="list-group-item">
       <%= product.title %>(<%= product.price %> 元)
-      <%= link_to '加到購物車', add_item_cart_path(product), method: 'post' %>
+      <%= link_to '加到購物車', add_item_cart_path(product), method: 'post'%>
     </li>
   <% end %>
 </ul>
