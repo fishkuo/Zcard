@@ -1,0 +1,18 @@
+<nav class="container navbar navbar-light bg-dark text-light">
+	<li><%= link_to "首頁", root_path ,class: 'text-white'%></li>
+	<li><%= link_to "看板列表", boards_path,class: 'text-white' %></li>
+	<li><%= link_to "購買點數卡", pricing_path,class: 'text-white' %></li>
+
+	<% if current_user %>
+	<li>
+		<%= link_to cart_path,class: 'text-white' do %>
+		<i class="fas fa-cat text-white"></i>
+		(<%= current_cart.items.count %> / <%= current_cart.total_price %>) <% end %>
+	</li>
+	<li><%= link_to current_user.nickname, edit_users_path, class: ' text-white'%></li>
+	<li><%= link_to "登出", sign_out_users_path, method: 'delete' ,class: 'text-white', data:{confirm:"確定登出？"}%></li>
+	<% else %>
+	<li><%= link_to "註冊", sign_up_users_path ,class: 'text-white'%></li>
+	<li><%= link_to "登入", sign_in_users_path ,class: 'text-white'%></li>
+	<% end %>
+</nav>

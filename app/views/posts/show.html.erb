@@ -1,0 +1,24 @@
+<h1 style="margin-top:30px;"><%= @post.title %></h1>
+<h2 class="d-inline" data-controller="favorite" data-favorite-id="<%= @post.id %>">
+	<% if user_signed_in? %> <%= link_to '#', data: { action: 'favorite#go' } do %> <% if current_user.favorite?(@post) %>
+	<i class="fas fa-heart" data-target="favorite.icon"></i>
+	<% else %>
+	<i class="far fa-heart" data-target="favorite.icon"></i>
+	<% end %> <% end %> <% end %>
+</h2>
+posted by <strong><%= @post.user.nickname %> </strong><%= link_to '編輯貼文', edit_post_path(@post) if
+@post.owned_by?(current_user) %>
+
+<div class="card" style="margin-bottom:30px; margin-top:30px;">
+	<div class="card-body" "><%= simple_format(@post.content) %></div>
+</div>
+<%= link_to '回到文章列表', :back %> <%= form_for(@comment, url: post_comments_path(@post), remote: true) do |f| %>
+<div class="input-group" style="margin-top:30px;">
+	<%= f.text_area :content, placeholder: '請輸入留言',class:"form-control" %> <%= f.submit '送出' %>
+</div>
+<% end %>
+
+<ul class="comment list-group" style="margin-top:30px;">
+	<%= render @comments %>
+</ul>
+<%= paginate @comments %>

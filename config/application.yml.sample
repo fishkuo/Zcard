@@ -1,0 +1,7 @@
+braintree_merchant_id: "your merchant it"
+braintree_public_key: "your public key"
+braintree_private_key: "your private key"
+
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU

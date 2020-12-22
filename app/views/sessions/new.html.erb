@@ -1,0 +1,15 @@
+<h1 style="margin-top:30px;">會員登入</h1>
+
+<%= form_with(model: @user, url: sign_in_users_path, method: 'post', local: true) do |form| %>
+  <div class="field">
+    <%= form.label :email ,class:"form-label"%>
+    <%= form.text_field :email,class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, '密碼' ,class:"form-label"%>
+    <%= form.password_field :password,class:"form-control" %>
+  </div>
+
+  <%= form.submit '登入' ,class:"btn btn-dark", style:"margin-top:30px"%>
+<% end %>

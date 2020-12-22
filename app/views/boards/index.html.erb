@@ -1,0 +1,25 @@
+<h1 style="margin-top:30px">看板列表</h1>
+
+<ul class="list-group" style="margin-top:30px">
+	<% @boards.each do |board| %>
+	<li class="list-group-item"> 
+		<%= link_to "編輯", edit_board_path(board), class: "btn btn-light" %> 
+
+		<%= link_to "隱藏", hide_board_path(board), method: 'patch' if check?(board, :hide) %> 
+		<%=link_to "開放", open_board_path(board), method: 'patch' if check?(board, :open) %> 
+		<%= link_to "鎖定",
+		lock_board_path(board), method: 'patch' if check?(board, :lock) %> 
+		<%= link_to board.title, board, class:
+		board_title_css(board) ,style:"margin-left:30px"%>
+		<%= link_to "刪除", board, method: 'delete', data: { confirm:
+			'是否確定刪除？'}, class: "btn btn-danger " ,style:"margin-left:30px"%> 
+	</li>
+	<% end %>
+</ul>
+
+<% if current_user %>
+<button class="btn btn-dark" style="margin-top:30px"><%= link_to "新增看板", new_board_path ,class:"text-white"%></button>
+<% else %>
+<div class="alert alert-warning" role="alert">請先登入</div>
+<% end %>
+

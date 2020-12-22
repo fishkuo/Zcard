@@ -1,0 +1,19 @@
+<% if board.errors.any? %>
+  <ul>
+    <% board.errors.full_messages.each do |message| %>
+    <li class="alert-danger"><%= message%></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(board) do |form| %>
+
+  <div class="row">
+    <!-- <div class="col"> <%= form.label :title, '看板標題', class: "form-label"%></div> -->
+    <div class="col">  <%= form.text_field :title ,class: "form-control " %></div>
+    <div class="col">  <%= form.submit class: "btn btn-dark form-control "%></div>
+  </div>
+
+
+
+<% end %>

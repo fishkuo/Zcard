@@ -1,0 +1,26 @@
+<h1 style="margin-top:30px;">註冊會員</h1>
+
+<%= form_for(@user) do |form| %>
+
+  <div class="fields">
+    <%= form.label :email ,class:"form-label"%>
+    <%= form.text_field :email ,class:"form-control"%>
+  </div>
+
+  <div class="fields">
+    <%= form.label :password, '密碼' ,class:"form-label"%>
+    <%= form.password_field :password,class:"form-control" %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :password_confirmation, '密碼確認' ,class:"form-label"%>
+    <%= form.password_field :password_confirmation ,class:"form-control"%>
+  </div>
+
+  <div class="fields">
+    <%= form.label :nickname, '暱稱' ,class:"form-label"%>
+    <%= form.text_field :nickname,class:"form-control" %>
+  </div>
+
+  <%= form.submit '註冊' ,class:"btn btn-dark", style:"margin-top:30px" %>
+<% end %>

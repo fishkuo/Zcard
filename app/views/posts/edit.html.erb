@@ -1,0 +1,16 @@
+<h1>編輯文章</h1>
+
+<%= form_for(@post) do |form| %>
+
+  <div class="field form-floating">
+    <%= form.label "文章標題" ,class:"form-label"%>
+    <%= form.text_field :title ,class:"form-control"%>
+  </div>
+
+  <div class="field form-floating" ">
+    <%= form.label "文章內容" ,class:"form-label"%>
+    <%= form.text_area :content ,class:"form-control" ,style:"height:300px" %>
+  </div>
+
+  <%= form.submit class:"btn btn-dark"%>
+<% end %>
